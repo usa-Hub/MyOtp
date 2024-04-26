@@ -25,13 +25,7 @@ class SMSBroadCastReceiver : BroadcastReceiver() {
                     Log.e("dani", "SUCCESS")
                     val message = extras.getString(SmsRetriever.EXTRA_SMS_MESSAGE) as String
                     Log.e("dani", "message1" + message)
-//                    onReceiveCode?.let {
-//                        it(message.filter { it.isDigit() })
-//                    }
-//                    val otpCode = message?.filter { it.isDigit() }
-//                    if (otpCode != null) {
-//                        Log.e("MySMS", otpCode)
-//                    }
+
                     val p: Pattern = Pattern.compile("(|^)\\d{5}")
                     val m: Matcher = p.matcher(message)
                     if (m.find()) {
@@ -41,9 +35,5 @@ class SMSBroadCastReceiver : BroadcastReceiver() {
                 }
             }
         }
-
-//    fun setOnCodeReceiveListener(listener: ((String) -> Unit)? = null) {
-//        onReceiveCode = listener
-//    }
     }
 }
